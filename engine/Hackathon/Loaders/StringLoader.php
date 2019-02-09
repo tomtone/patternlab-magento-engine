@@ -22,6 +22,10 @@ class StringLoader extends Loader
      */
     public function render($options = array())
     {
-        return "";
+        ob_start();
+       // @ToDo what needs to be done here?
+        $content = ob_get_contents();
+        ob_end_flush();
+        return $content;
     }
 }

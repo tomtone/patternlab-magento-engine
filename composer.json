@@ -26,7 +26,8 @@
 	},
 	"require": {
 		"php": ">=5.3.6",
-		"pattern-lab/core": "^2.0.0"
+		"pattern-lab/core": "^2.0.0",
+		"pattern-lab/styleguidekit-assets-default": "^3.0.0"
 	},
 	"scripts": {
 		"post-install-cmd": [

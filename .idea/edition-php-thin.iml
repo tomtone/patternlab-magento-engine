@@ -10,6 +10,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/kevinlebrun/colors.php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/michelf/php-markdown" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/pattern-lab/core" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pattern-lab/styleguidekit-assets-default" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/seld/jsonlint" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/shudrum/array-finder" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />

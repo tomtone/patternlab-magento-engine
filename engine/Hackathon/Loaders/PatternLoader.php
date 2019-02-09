@@ -14,6 +14,11 @@ use \PatternLab\PatternEngine\Loader;
 
 class PatternLoader extends Loader
 {
+    private $fileSystemLoaderPaths;
+
+    /**
+     * PatternLoader constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -31,13 +36,7 @@ class PatternLoader extends Loader
                 $filesystemLoaderPaths[] = $object->getPathname();
             }
         }
-
-        // set-up the loader list in order that they should be checked
-        // 1. Patterns 2. Filesystem 3. String
-        $loaders = array();
-
-        $dispatcherInstance = Dispatcher::getInstance();
-        $dispatcherInstance->dispatch("phtmlLoaderPreInit.customize");
+        $this->fileSystemLoaderPaths = $filesystemLoaderPaths;
     }
 
     /**
@@ -48,6 +47,12 @@ class PatternLoader extends Loader
      */
     public function render($options = array())
     {
-        return "";
+        var_dump($this->fileSystemLoaderPaths);
+        var_dump($options);
+        ob_start();
+        // @ToDo what needs to be done here?
+        $content = ob_get_contents();
+        ob_end_flush();
+        return $content;
     }
 }

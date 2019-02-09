@@ -16,6 +16,7 @@
       <path value="$PROJECT_DIR$/vendor/pattern-lab/core" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/shudrum/array-finder" />
+      <path value="$PROJECT_DIR$/vendor/pattern-lab/styleguidekit-assets-default" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.3.0" />
