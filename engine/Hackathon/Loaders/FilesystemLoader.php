@@ -32,6 +32,9 @@ class FilesystemLoader extends Loader
      */
     public function render($options = array())
     {
+        foreach ($options['data'] as $key => $value){
+            ${$key} = $value;
+        }
         ob_start();
         foreach ($this->fileSystemPaths as $path){
             if(file_exists($path . '/' . $options['template'] . '.' . Config::getOption("patternExtension"))){

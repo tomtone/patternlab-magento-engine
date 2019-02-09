@@ -2,12 +2,12 @@
 <div class="sg-main" role="main">
     <!-- Patterns -->
     <div id="sg-patterns">
-        {% for partial in partials %}
-        {% if partial.patternSectionSubtype %}
-        {% include "patternSectionSubtype.twig" %}
-        {% else %}
-        {% include "patternSection.twig" %}
-        {% endif %}
-        {% endfor %}
+        <?php foreach ($partials as $partial): ?>
+            <?php if (isset($partial['patternSectionSubtype'])): ?>
+                <?php require $partial['patternSectionSubtype']; ?>
+            <?php else: ?>
+                <?php require "patternSection.phtml"; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div> <!--end #sg-patterns-->
 </div><!--end .sg-main-->

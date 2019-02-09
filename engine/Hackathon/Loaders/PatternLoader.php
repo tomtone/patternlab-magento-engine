@@ -8,6 +8,7 @@
 
 namespace PatternEngine\Phtml\Loaders;
 
+use PatternEngine\Phtml\Loaders\Phtml\PatterPartialLoader;
 use PatternLab\Config;
 use PatternLab\Dispatcher;
 use \PatternLab\PatternEngine\Loader;
@@ -18,8 +19,9 @@ class PatternLoader extends Loader
 
     /**
      * PatternLoader constructor.
+     * @param array $options
      */
-    public function __construct()
+    public function __construct($options = array())
     {
         parent::__construct();
         // add source/_patterns subdirectories for Drupal theme template compatibility
@@ -37,6 +39,13 @@ class PatternLoader extends Loader
             }
         }
         $this->fileSystemLoaderPaths = $filesystemLoaderPaths;
+
+        // set-up the loader list in order that they should be checked
+        // 1. Patterns 2. Filesystem 3. String
+        $loaders   = array();
+        // 1. add Patterns
+        $loaders[] = new PatterPartialLoader(Config::getOption("patternSourceDir"),array("patternPaths" => $options["patternPaths"]));
+
     }
 
     /**
@@ -47,12 +56,14 @@ class PatternLoader extends Loader
      */
     public function render($options = array())
     {
-        var_dump($this->fileSystemLoaderPaths);
         var_dump($options);
-        ob_start();
-        // @ToDo what needs to be done here?
-        $content = ob_get_contents();
-        ob_end_flush();
+        $content = "";
+        if(strlen($options['pattern'] > 0)) {
+            ob_start();
+            exec($options['pattern']);
+            $content = ob_get_contents();
+            ob_end_flush();
+        }
         return $content;
     }
 }
